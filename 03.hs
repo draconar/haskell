@@ -88,3 +88,12 @@ a && b = if a then if b then False else True else False
 a && b = if a then b else False
 
 a && b = if b then a else False
+
+
+mult x y z = \ x -> ( \ y -> (\z -> x * y * z))
+
+mult = \x -> (x * \y -> (y * \z -> z))
+
+mult = \x -> (\y -> (\z -> x * y * z))
+
+mult = ((((\x -> \y) -> \z) -> x * y) * z)
