@@ -92,8 +92,17 @@ a && b = if b then a else False
 
 mult x y z = \ x -> ( \ y -> (\z -> x * y * z))
 
-mult = \x -> (x * \y -> (y * \z -> z))
+mult2 = \x -> (x * \y -> (y * \z -> z))
 
-mult = \x -> (\y -> (\z -> x * y * z))
+mult3 = \x -> (\y -> (\z -> x * y * z))
 
-mult = ((((\x -> \y) -> \z) -> x * y) * z)
+mult4 = ((((\x -> \y) -> \z) -> x * y) * z)
+
+
+remove1 n xs = take n xs ++ drop n xs
+remove2 n xs = drop n xs ++ take n xs
+remove3 n xs = take (n+1) xs ++ drop n xs
+remove4 n xs = take n xs ++ drop (n+1) xs
+
+funct :: Int -> [a] -> [a]
+funct x xs = take (x + 1) xs ++ drop x xs
