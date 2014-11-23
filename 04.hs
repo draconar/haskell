@@ -24,3 +24,4 @@ positions x xs = find x (zip xs [0..n])
 scalarprod xs ys = sum [x*y | x <- xs, y <- ys]
 scalarprod1 xs ys = sum [x*y | (x,y) <- xs `zip` ys]
 scalarprod2 xs ys = product (zipWith (+) xs ys)
+
