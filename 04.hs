@@ -24,3 +24,35 @@ positions x xs = find x (zip xs [0..n])
 scalarprod xs ys = sum [x*y | x <- xs, y <- ys]
 scalarprod1 xs ys = sum [x*y | (x,y) <- xs `zip` ys]
 scalarprod2 xs ys = product (zipWith (+) xs ys)
+
+-- 7. import statement is at the top of this file.
+-- Answer: Guvax yvxr n Shaqnzragnyvfg Pbqr yvxr n Unpxre
+let2int :: Char -> Int
+let2int c = ord c - ord 'a'
+
+int2let :: Int -> Char
+int2let n = chr (ord 'a' + n)
+
+shift :: Int -> Char -> Char
+shift n c
+  | isLower c = int2let ((let2int c + n) `mod` 26)
+  | isUpper c = toUpper (int2let ((let2int(toLower c) + 13) `mod` 26))
+  | otherwise = c
+
+encode :: Int -> String -> String
+encode n xs = [shift n x | x <- xs]
+
+-- 8. [(1,1),(1,2),(2,1),(2,2)]
+
+-- 9. [1,2,2,3,3,3]
+
+-- 10. 30
+
+-- 11. xs = [1,2,3,...]
+
+-- 12.
+riffle xs ys = concat [[x,y] | (x,y) <- xs `zip` ys]
+
+-- 13.
+divisors x = [d | d <- [1..x], x `divides` d]
+  where divides a b = a `mod` b == 0
